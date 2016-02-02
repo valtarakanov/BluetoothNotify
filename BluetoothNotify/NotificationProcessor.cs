@@ -1,4 +1,4 @@
-﻿/*
+﻿
 using System;
 using Android.Locations;
 using System.Collections.Generic;
@@ -13,39 +13,20 @@ using System.Collections;
 using Android.Content;
 
 
-namespace BluetoothNotify
+namespace com.tarabel.bluetoothnotify
 {
-	public class BluetoothOperations
+	public class NotificationProcessor
 	{
-		//LocationManager _locationManager;
-		//string _locationProvider;
-		BTConnectedStateRecevier btReceiver = null;
-
-		public BluetoothOperations ()
+		public NotificationProcessor ()
 		{
-			//InitializeLocationManager ();
+			InitializeLocationManager ();
 
-			btReceiver = new BTConnectedStateRecevier ();
 		}
-
-		
-	}
-
-
-	[BroadcastReceiver]
-	[IntentFilter(new[] {BluetoothDevice.ActionAclConnected, BluetoothDevice.ActionAclDisconnectRequested, BluetoothDevice.ActionAclDisconnected})]
-	public class BTConnectedStateRecevier : BroadcastReceiver
-	{
 
 		public MainActivity Bar;
 		string _locationProvider;
 		LocationManager _locationManager;
 
-		public BTConnectedStateRecevier () : base ()
-		{
-			InitializeLocationManager ();
-
-		}
 
 		void InitializeLocationManager()
 		{
@@ -68,7 +49,7 @@ namespace BluetoothNotify
 		}
 
 
-		public override void OnReceive(Context context, Intent intent)
+		public void ProcessIntent(Context context, Intent intent)
 		{
 			if (intent.Action == BluetoothDevice.ActionAclConnected)
 			{
@@ -122,10 +103,6 @@ namespace BluetoothNotify
 			{
 			}
 
-			
-
-			//bt.GetProfileProxy(null,null,ProfileType.GattServer
-
 			Android.Telephony.SmsManager.Default.SendTextMessage ("2623092186", null, "Message from " + locationText + " address: " + addressText + " device " + foo, null, null);
 
 		}
@@ -133,4 +110,3 @@ namespace BluetoothNotify
 	}
 }
 
-*/

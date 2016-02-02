@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("BluetoothNotify.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("com.tarabel.bluetoothnotify.Resource", IsApplication=true)]
 
-namespace BluetoothNotify
+namespace com.tarabel.bluetoothnotify
 {
 	
 	
