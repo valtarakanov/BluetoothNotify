@@ -12,7 +12,7 @@ namespace com.tarabel.bluetoothnotify
 	[IntentFilter (new[] {Intent.ActionBootCompleted, "android.intent.action.QUICKBOOT_POWERON", BluetoothDevice.ActionAclConnected, BluetoothDevice.ActionAclDisconnectRequested, BluetoothDevice.ActionAclDisconnected})]
 	public class IntentReceiver : BroadcastReceiver 
 	{
-		NotificationProcessor _notificationProcessor;
+		BluetoothProcessor _bluetoothProcessor;
 
 		public override void OnReceive (Context context, Intent intent)
 		{
@@ -53,10 +53,10 @@ namespace com.tarabel.bluetoothnotify
 		void ProcessBluetoothIntent (Context context, Intent intent)
 		{
 			try {
-				if (_notificationProcessor == null) {
-					_notificationProcessor = new NotificationProcessor ();
+				if (_bluetoothProcessor == null) {
+					_bluetoothProcessor = new BluetoothProcessor ();
 				}
-				_notificationProcessor.ProcessIntent (context, intent);
+				_bluetoothProcessor.ProcessIntent (context, intent);
 			} catch (Exception ex) {
 				Log.Info ("com.tarabel.bluetoothnotify", "error while passing intent to NotificationProcessor " + ex.ToString());
 			}

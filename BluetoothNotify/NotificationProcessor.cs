@@ -49,27 +49,10 @@ namespace com.tarabel.bluetoothnotify
 		}
 
 
-		public void ProcessIntent(Context context, Intent intent)
-		{
-			if (intent.Action == BluetoothDevice.ActionAclConnected)
-			{
-				BluetoothDevice bd = (BluetoothDevice)intent.Extras.Get ("android.bluetooth.device.extra.DEVICE");
-				string 	foo = bd.Name + " " + bd.Address;
-				SendMessage ("connected " + foo);
-			}
-
-			if (intent.Action == BluetoothDevice.ActionAclDisconnectRequested ||
-				intent.Action == BluetoothDevice.ActionAclDisconnected )
-			{
-				BluetoothDevice bd = (BluetoothDevice)intent.Extras.Get ("android.bluetooth.device.extra.DEVICE");
-				string 	foo = bd.Name + " " + bd.Address;
-				SendMessage ("disconnected " + foo);
-
-			}
-		}
 
 
-		private void SendMessage(string foo)
+
+		public void SendMessage(string foo)
 		{
 			Location currentLocation;
 			string addressText = "Unable to determine the address.";

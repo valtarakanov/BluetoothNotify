@@ -52,6 +52,10 @@
     <Compile Include="IntentReceiver.cs" />
     <Compile Include="NotificationProcessor.cs" />
     <Compile Include="BluetoothLowEnergySearchService.cs" />
+    <Compile Include="BluetoothProcessor.cs" />
+    <Compile Include="Resources\SettingsProcessor.cs" />
+    <Compile Include="DeviceInfo.cs" />
+    <Compile Include="DeviceListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -67,6 +71,7 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\layout\DeviceRow.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
