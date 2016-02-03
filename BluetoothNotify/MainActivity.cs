@@ -26,7 +26,7 @@ namespace com.tarabel.bluetoothnotify
 			StartService (new Intent (this, typeof(BluetoothLowEnergySearchService)));
 
 			List<string> availableDevices = (new BluetoothProcessor ()).GetDeviceList (this);
-			List<DeviceInfo> bluetoothDevices = SettingsProcessor.RetrievePreviousSelections (availableDevices);
+			List<DeviceInfo> bluetoothDevices = SettingsProcessor.RetrievePreviousSelections (availableDevices, this.ApplicationContext);
 
 			ListView deviceView = FindViewById<ListView> (Resource.Id.deviceListView);
 			deviceView.Adapter = new DeviceListAdapter (this, bluetoothDevices);
@@ -39,7 +39,7 @@ namespace com.tarabel.bluetoothnotify
 			ListView deviceView = FindViewById<ListView> (Resource.Id.deviceListView);
 			DeviceListAdapter deviceListAdapter = deviceView.Adapter as DeviceListAdapter;
 
-			SettingsProcessor.StoreSelections (deviceListAdapter.GetSelectedDevices ());
+			SettingsProcessor.StoreSelections (deviceListAdapter.GetSelectedDevices (),this.ApplicationContext);
 
 			this.Finish ();
 		}

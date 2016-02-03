@@ -53,9 +53,9 @@
     <Compile Include="NotificationProcessor.cs" />
     <Compile Include="BluetoothLowEnergySearchService.cs" />
     <Compile Include="BluetoothProcessor.cs" />
-    <Compile Include="Resources\SettingsProcessor.cs" />
     <Compile Include="DeviceInfo.cs" />
     <Compile Include="DeviceListAdapter.cs" />
+    <Compile Include="SettingsProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

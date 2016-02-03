@@ -64,17 +64,22 @@ namespace com.tarabel.bluetoothnotify
 			if (intent.Action == BluetoothDevice.ActionAclConnected)
 			{
 				BluetoothDevice bd = (BluetoothDevice)intent.Extras.Get ("android.bluetooth.device.extra.DEVICE");
-				string 	foo = bd.Name + " " + bd.Address;
-				SendMessage ("connected " + foo);
+				//TODO: update with better wording
+				if (SettingsProcessor.IsDeviceSelectedForNotifications (bd.Name, bd.Address, context)) {
+					string foo = bd.Name + " " + bd.Address;
+					SendMessage (" connected " + foo);
+				}
 			}
 
 			if (intent.Action == BluetoothDevice.ActionAclDisconnectRequested ||
 				intent.Action == BluetoothDevice.ActionAclDisconnected )
 			{
 				BluetoothDevice bd = (BluetoothDevice)intent.Extras.Get ("android.bluetooth.device.extra.DEVICE");
-				string 	foo = bd.Name + " " + bd.Address;
-				SendMessage ("disconnected " + foo);
-
+				//TODO: update with better wording
+				if (SettingsProcessor.IsDeviceSelectedForNotifications (bd.Name, bd.Address, context)) {
+					string foo = bd.Name + " " + bd.Address;
+					SendMessage (" disconnected " + foo);
+				}
 			}
 		}
 
